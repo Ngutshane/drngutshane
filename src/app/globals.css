@@ -1,0 +1,69 @@
+@import "tailwindcss";
+
+@layer base {
+  :root {
+    --navy: #0A1628;
+    --navy-mid: #122040;
+    --gold: #C9A84C;
+    --gold-light: #E8C97A;
+    --slate: #6B7A99;
+    --slate-light: #A8B4CA;
+    --bg-light: #F4F7FC;
+    --bg-white: #FFFFFF;
+    --text-primary: #0A1628;
+    --text-secondary: #6B7A99;
+    --border: #DDE3EE;
+  }
+
+  html {
+    scroll-behavior: smooth;
+    -webkit-font-smoothing: antialiased;
+  }
+
+  body {
+    font-family: 'Inter', system-ui, -apple-system, sans-serif;
+    color: var(--text-primary);
+    background: var(--bg-white);
+  }
+
+  h1, h2, h3 {
+    font-family: 'Playfair Display', Georgia, serif;
+  }
+}
+
+@layer utilities {
+  .font-display {
+    font-family: 'Playfair Display', Georgia, serif;
+  }
+
+  .text-gold {
+    color: var(--gold);
+  }
+
+  .bg-navy {
+    background-color: var(--navy);
+  }
+
+  .bg-navy-mid {
+    background-color: var(--navy-mid);
+  }
+
+  .border-gold {
+    border-color: var(--gold);
+  }
+
+  .text-navy {
+    color: var(--navy);
+  }
+}
+
+/* Heart divider animation */
+@keyframes pulse-line {
+  0%, 100% { stroke-dashoffset: 0; }
+  50% { stroke-dashoffset: 20; }
+}
+
+.heart-line {
+  stroke-dasharray: 8 4;
+  animation: pulse-line 3s ease-in-out infinite;
+}
