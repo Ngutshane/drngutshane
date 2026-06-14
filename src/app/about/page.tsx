@@ -6,7 +6,7 @@ import BookingCTA from "@/components/home/BookingCTA";
 export const metadata: Metadata = {
   title: "About",
   description:
-    "Learn about Dr B. Ngutshane — specialist cardiothoracic surgeon practising in Southrand and Westrand, Gauteng.",
+    "Learn about Dr B. Ngutshane — specialist cardiothoracic surgeon with sessional rooms at Life Wilgeheuwel, Dr SK Matseke Memorial, and Netcare Pinehaven hospitals in Gauteng.",
 };
 
 const credentials = [
@@ -14,7 +14,9 @@ const credentials = [
   { icon: GraduationCap, text: "FCS(SA) – Cardiothoracic Surgery" },
   { icon: Award, text: "HPCSA Registered Specialist" },
   { icon: Award, text: "Member, South African Thoracic Society" },
-  { icon: MapPin, text: "Consulting: Southrand (Alberton) & Westrand (Roodepoort)" },
+  { icon: MapPin, text: "Life Wilgeheuwel Hospital, Roodepoort" },
+  { icon: MapPin, text: "Dr SK Matseke Memorial Hospital, Soweto" },
+  { icon: MapPin, text: "Netcare Pinehaven Hospital, Krugersdorp" },
 ];
 
 export default function AboutPage() {
@@ -48,9 +50,10 @@ export default function AboutPage() {
             <p>
               Trained at some of South Africa&apos;s leading academic institutions, Dr Ngutshane
               underwent his cardiothoracic fellowship training and has operated across both
-              public and private healthcare settings in Gauteng. His dual-practice model — with
-              consulting rooms in Southrand and Westrand — makes specialist surgical care
-              accessible to a wide population across the province.
+              public and private healthcare settings in Gauteng. His sessional rooms at Life
+              Wilgeheuwel Hospital, Dr SK Matseke Memorial Hospital, and Netcare Pinehaven
+              Hospital make specialist surgical care accessible to a wide population across
+              the province.
             </p>
             <p>
               Dr Ngutshane is committed to continuing medical education, staying abreast of
@@ -90,19 +93,25 @@ export default function AboutPage() {
           <h2 className="font-display text-3xl text-[#0A1628] font-bold mb-8">
             Practice Locations
           </h2>
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
             {[
               {
-                name: "Southrand Practice",
-                area: "Alberton, Ekurhuleni",
-                hospital: "Netcare Union Hospital (affiliated)",
-                address: "Address to be confirmed",
+                name: "Life Wilgeheuwel Hospital",
+                area: "Roodepoort, 1724",
+                address: "Sessional Rooms, Amplifier Road, Radiokop Ext 13",
+                tel: "011 796 6686",
               },
               {
-                name: "Westrand Practice",
-                area: "Roodepoort, Johannesburg",
-                hospital: "Netcare Pinehaven Hospital (affiliated)",
-                address: "Address to be confirmed",
+                name: "Dr SK Matseke Memorial Hospital",
+                area: "Diepkloof Zone 6, Soweto, 2136",
+                address: "Suite 5, 23967 Chris Hani Road",
+                tel: "011 933 5000",
+              },
+              {
+                name: "Netcare Pinehaven Hospital",
+                area: "Pinehaven Estates, Krugersdorp, 1739",
+                address: "Sessional Rooms, 1 Gateway Road",
+                tel: "011 950 5400",
               },
             ].map((p) => (
               <div key={p.name} className="bg-white border border-[#DDE3EE] p-7">
@@ -112,7 +121,7 @@ export default function AboutPage() {
                 <p className="text-[#C9A84C] text-xs tracking-wider uppercase mb-3">{p.area}</p>
                 <ul className="space-y-1 text-sm text-[#6B7A99]">
                   <li>{p.address}</li>
-                  <li className="mt-1 text-xs italic">{p.hospital}</li>
+                  <li className="mt-1 font-medium">Tel: {p.tel}</li>
                 </ul>
               </div>
             ))}

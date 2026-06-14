@@ -4,7 +4,7 @@ import { CheckCircle2 } from "lucide-react";
 
 const highlights = [
   "Fellowship-trained cardiothoracic surgeon",
-  "Dual practices: Southrand & Westrand",
+  "Sessional rooms at three hospitals across Gauteng",
   "Collaborative care with referring GPs and cardiologists",
   "Patient-centred approach, clear communication",
 ];

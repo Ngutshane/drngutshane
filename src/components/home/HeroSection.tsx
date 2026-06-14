@@ -73,8 +73,8 @@ export default function HeroSection() {
 
             <p className="text-slate-300 text-lg leading-relaxed mb-8 max-w-lg">
               Dr B. Ngutshane is a specialist cardiothoracic surgeon delivering
-              expert cardiac and thoracic surgical care across Southrand and
-              Westrand, Gauteng.
+              expert cardiac and thoracic surgical care at Life Wilgeheuwel,
+              Dr SK Matseke Memorial, and Netcare Pinehaven hospitals, Gauteng.
             </p>
 
             {/* Trust badges */}
@@ -89,7 +89,7 @@ export default function HeroSection() {
               </div>
               <div className="flex items-center gap-2 text-slate-400 text-xs">
                 <MapPin size={13} className="text-[#C9A84C]" />
-                <span>Southrand &amp; Westrand</span>
+                <span>Roodepoort · Soweto · Krugersdorp</span>
               </div>
             </div>
 

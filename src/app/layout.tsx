@@ -23,14 +23,18 @@ export const metadata: Metadata = {
     template: "%s | Dr B. Ngutshane Inc.",
   },
   description:
-    "Dr B. Ngutshane is a specialist cardiothoracic surgeon practising in Southrand and Westrand, Gauteng. Book an appointment online or learn about cardiac and thoracic surgery services.",
+    "Dr B. Ngutshane is a specialist cardiothoracic surgeon with sessional rooms at Life Wilgeheuwel Hospital (Roodepoort), Dr SK Matseke Memorial Hospital (Soweto), and Netcare Pinehaven Hospital (Krugersdorp). Book an appointment online.",
   keywords: [
     "cardiothoracic surgeon",
     "heart surgeon",
     "thoracic surgery",
     "Gauteng surgeon",
-    "Southrand",
-    "Westrand",
+    "Life Wilgeheuwel Hospital",
+    "Dr SK Matseke Memorial Hospital",
+    "Netcare Pinehaven Hospital",
+    "Roodepoort",
+    "Soweto",
+    "Krugersdorp",
     "cardiac surgery South Africa",
   ],
   openGraph: {
