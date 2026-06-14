@@ -1,26 +1,38 @@
 import { NextRequest, NextResponse } from "next/server";
+import { supabaseAdmin } from "@/lib/supabase";
 
-/**
- * POST /api/intake
- * Accepts encrypted patient intake data.
- * In production: write to Supabase patient_intake table (AES-256 at rest).
- */
 export async function POST(req: NextRequest) {
   try {
     const body = await req.json();
+    const {
+      appointmentId,
+      medicalAidName, medicalAidNumber, medicalAidPlan,
+      mainMember, memberNumber,
+      allergies, currentMedications, medicalHistory,
+      smokingStatus, consent,
+    } = body;
 
-    if (!body.consent) {
-      return NextResponse.json(
-        { error: "POPIA consent is required." },
-        { status: 400 }
-      );
+    if (!consent) {
+      return NextResponse.json({ error: "POPIA consent is required." }, { status: 400 });
     }
 
-    // TODO: Encrypt sensitive fields before storage
-    // const encrypted = encryptFields(body, ["idNumber", "medicalAidNumber", "medicalHistory"])
-    // await supabase.from("patient_intake").insert(encrypted)
+    const { error } = await supabaseAdmin.from("patient_intake").insert({
+      appointment_id: appointmentId || null,
+      medical_aid_name: medicalAidName || null,
+      medical_aid_plan: medicalAidPlan || null,
+      medical_aid_number: medicalAidNumber || null,
+      main_member: mainMember || null,
+      member_number: memberNumber || null,
+      allergies: allergies || null,
+      current_medications: currentMedications || null,
+      medical_history: medicalHistory || null,
+      smoking_status: smokingStatus || "never",
+      popia_consent: true,
+    });
 
-    return NextResponse.json({ success: true, message: "Intake information stored securely." });
+    if (error) throw error;
+
+    return NextResponse.json({ success: true });
   } catch (err) {
     console.error("[intake] Error:", err);
     return NextResponse.json({ error: "Internal server error" }, { status: 500 });

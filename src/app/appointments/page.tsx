@@ -9,6 +9,7 @@ type Step = "booking" | "intake" | "done";
 
 export default function AppointmentsPage() {
   const [step, setStep] = useState<Step>("booking");
+  const [appointmentId, setAppointmentId] = useState<string | null>(null);
 
   // Booking form state
   const [booking, setBooking] = useState({
@@ -27,9 +28,20 @@ export default function AppointmentsPage() {
 
   const handleBookingSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    // TODO: POST to /api/appointments
-    toast.success("Appointment request received — our team will confirm your slot.");
-    setStep("intake");
+    try {
+      const res = await fetch("/api/appointments", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(booking),
+      });
+      const data = await res.json();
+      if (!res.ok) throw new Error(data.error);
+      if (data.id) setAppointmentId(data.id);
+      toast.success("Appointment request received — our team will confirm your slot.");
+      setStep("intake");
+    } catch {
+      toast.error("Failed to submit. Please call 083 261 7760 to book directly.");
+    }
   };
 
   const handleIntakeSubmit = async (e: React.FormEvent) => {
@@ -38,9 +50,19 @@ export default function AppointmentsPage() {
       toast.error("Please confirm your consent to proceed.");
       return;
     }
-    // TODO: POST to /api/intake (encrypted)
-    toast.success("Intake information saved securely.");
-    setStep("done");
+    try {
+      const res = await fetch("/api/intake", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ ...intake, appointmentId }),
+      });
+      if (!res.ok) throw new Error();
+      toast.success("Intake information saved securely.");
+      setStep("done");
+    } catch {
+      toast.error("Failed to save intake. You can complete this at your appointment.");
+      setStep("done");
+    }
   };
 
   if (step === "done") {
@@ -137,7 +159,11 @@ export default function AppointmentsPage() {
                   required
                   value={booking.location}
                   onChange={(v) => setBooking({ ...booking, location: v })}
-                  options={["Southrand (Alberton)", "Westrand (Roodepoort)"]}
+                  options={[
+                    "Life Wilgeheuwel Hospital (Roodepoort)",
+                    "Dr SK Matseke Memorial Hospital (Soweto)",
+                    "Netcare Pinehaven Hospital (Krugersdorp)",
+                  ]}
                 />
                 <SelectField
                   label="How were you referred?"
