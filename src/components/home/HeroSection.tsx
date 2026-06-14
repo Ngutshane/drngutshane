@@ -138,7 +138,7 @@ export default function HeroSection() {
               {/* Photo */}
               <div className="relative w-75 sm:w-90 lg:w-100 h-95 sm:h-110 lg:h-125 overflow-hidden bg-[#122040]">
                 <Image
-                  src="/dr-ngutshane.jpg"
+                  src="/profile_improved.png"
                   alt="Dr B. Ngutshane – Cardiothoracic Surgeon"
                   fill
                   className="object-cover object-top"

@@ -18,7 +18,7 @@ export default function AboutPreview() {
           <div className="relative">
             <div className="relative h-110 sm:h-125 overflow-hidden bg-[#F4F7FC] rounded-sm">
               <Image
-                src="/dr-ngutshane.jpg"
+                src="/profile_improved.png"
                 alt="Dr B. Ngutshane – Cardiothoracic Surgeon"
                 fill
                 className="object-cover object-top"
