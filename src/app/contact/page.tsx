@@ -10,9 +10,18 @@ export default function ContactPage() {
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    // TODO: POST to /api/contact
-    toast.success("Message sent. We will respond within one business day.");
-    setForm({ name: "", email: "", phone: "", subject: "", message: "" });
+    try {
+      const res = await fetch("/api/contact", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(form),
+      });
+      if (!res.ok) throw new Error();
+      toast.success("Message sent. We will respond within one business day.");
+      setForm({ name: "", email: "", phone: "", subject: "", message: "" });
+    } catch {
+      toast.error("Failed to send message. Please try again or call 083 261 7760.");
+    }
   };
 
   return (
@@ -42,23 +51,43 @@ export default function ContactPage() {
             {[
               {
                 icon: MapPin,
-                title: "Southrand Practice",
-                lines: ["Alberton, Ekurhuleni, Gauteng", "Address to be confirmed"],
+                title: "Life Wilgeheuwel Hospital",
+                lines: [
+                  "Sessional Rooms",
+                  "Amplifier Road, Radiokop Ext 13",
+                  "Roodepoort, 1724",
+                  "Tel: 011 796 6686",
+                ],
               },
               {
                 icon: MapPin,
-                title: "Westrand Practice",
-                lines: ["Roodepoort, Johannesburg, Gauteng", "Address to be confirmed"],
+                title: "Dr SK Matseke Memorial Hospital",
+                lines: [
+                  "Suite 5",
+                  "23967 Chris Hani Road, Diepkloof Zone 6",
+                  "Soweto, 2136",
+                  "Tel: 011 933 5000",
+                ],
+              },
+              {
+                icon: MapPin,
+                title: "Netcare Pinehaven Hospital",
+                lines: [
+                  "Sessional Rooms",
+                  "1 Gateway Road, Pinehaven Estates",
+                  "Krugersdorp, 1739",
+                  "Tel: 011 950 5400",
+                ],
               },
               {
                 icon: Phone,
-                title: "Phone",
-                lines: ["+27 11 000 0000"],
+                title: "Bookings & General Enquiries",
+                lines: ["083 261 7760 (Secretary)"],
               },
               {
                 icon: Mail,
                 title: "Email",
-                lines: ["info@drngutshane.co.za"],
+                lines: ["admin@drngutshane.com"],
               },
               {
                 icon: Clock,

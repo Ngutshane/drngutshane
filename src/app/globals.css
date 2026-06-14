@@ -1,5 +1,41 @@
 @import "tailwindcss";
 
+/* ─── shadcn/ui colour tokens (mapped to the project's design system) ─────
+   These power semantic Tailwind classes used by Button and other shadcn
+   components: bg-background, text-primary, text-muted-foreground, etc.
+   Tailwind v4 reads --color-* from @theme to generate utility classes.     */
+@theme {
+  --color-background: #ffffff;
+  --color-foreground: #0A1628;
+
+  --color-card: #ffffff;
+  --color-card-foreground: #0A1628;
+
+  --color-popover: #ffffff;
+  --color-popover-foreground: #0A1628;
+
+  --color-primary: #0A1628;
+  --color-primary-foreground: #ffffff;
+
+  --color-secondary: #F4F7FC;
+  --color-secondary-foreground: #0A1628;
+
+  --color-muted: #F4F7FC;
+  --color-muted-foreground: #6B7A99;
+
+  --color-accent: #F4F7FC;
+  --color-accent-foreground: #0A1628;
+
+  --color-destructive: #ef4444;
+  --color-destructive-foreground: #ffffff;
+
+  --color-border: #DDE3EE;
+  --color-input: #DDE3EE;
+  --color-ring: #C9A84C;
+
+  --radius: 0.5rem;
+}
+
 @layer base {
   :root {
     --navy: #0A1628;

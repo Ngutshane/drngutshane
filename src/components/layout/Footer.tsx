@@ -25,8 +25,8 @@ export default function Footer() {
               Cardiothoracic Surgeon
             </p>
             <p className="text-sm leading-relaxed text-slate-400">
-              Specialist cardiac and thoracic surgical care across Gauteng, with practices
-              in Southrand and Westrand.
+              Specialist cardiac and thoracic surgical care across Gauteng, with sessional
+              rooms at Life Wilgeheuwel, Dr SK Matseke Memorial, and Netcare Pinehaven hospitals.
             </p>
           </div>
 
@@ -64,21 +64,29 @@ export default function Footer() {
             <ul className="space-y-3 text-sm text-slate-400">
               <li className="flex items-start gap-2">
                 <MapPin size={14} className="text-[#C9A84C] mt-0.5 shrink-0" />
-                <span>Southrand & Westrand, Gauteng, South Africa</span>
+                <span>Life Wilgeheuwel Hospital, Roodepoort</span>
+              </li>
+              <li className="flex items-start gap-2">
+                <MapPin size={14} className="text-[#C9A84C] mt-0.5 shrink-0" />
+                <span>Dr SK Matseke Memorial Hospital, Soweto</span>
+              </li>
+              <li className="flex items-start gap-2">
+                <MapPin size={14} className="text-[#C9A84C] mt-0.5 shrink-0" />
+                <span>Netcare Pinehaven Hospital, Krugersdorp</span>
               </li>
               <li className="flex items-center gap-2">
                 <Phone size={14} className="text-[#C9A84C] shrink-0" />
-                <a href="tel:+27110000000" className="hover:text-white transition-colors">
-                  +27 11 000 0000
+                <a href="tel:+27832617760" className="hover:text-white transition-colors">
+                  083 261 7760
                 </a>
               </li>
               <li className="flex items-center gap-2">
                 <Mail size={14} className="text-[#C9A84C] shrink-0" />
                 <a
-                  href="mailto:info@drngutshane.co.za"
+                  href="mailto:admin@drngutshane.com"
                   className="hover:text-white transition-colors"
                 >
-                  info@drngutshane.co.za
+                  admin@drngutshane.com
                 </a>
               </li>
             </ul>
