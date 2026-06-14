@@ -1,4 +1,3 @@
-@AGENTS.md
 # Dr B. Ngutshane Inc. - Product Requirements Document
 
 ## Project Description
