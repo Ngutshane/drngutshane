@@ -92,7 +92,7 @@ export default function AppointmentsPage() {
             <div
               key={s.id}
               className={`flex items-center gap-2 text-sm font-medium transition-colors ${
-                step === s.id ? "text-[#C9A84C]" : step === "done" ? "text-[#6B7A99]" : "text-[#6B7A99]"
+                step === s.id ? "text-[#C9A84C]" : "text-[#6B7A99]"
               }`}
             >
               <s.icon size={15} />
