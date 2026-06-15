@@ -17,7 +17,7 @@ export async function sendEmail(opts: {
   replyTo?: string;
 }) {
   await transporter.sendMail({
-    from: process.env.EMAIL_FROM ?? `"Dr B. Ngutshane Inc." <${process.env.EMAIL_SERVER_USER}>`,
+    from: `"Dr B. Ngutshane Inc." <${process.env.EMAIL_FROM ?? process.env.EMAIL_SERVER_USER}>`,
     ...opts,
   });
 }
