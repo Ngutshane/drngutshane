@@ -7,11 +7,13 @@ export type BlogPost = {
   date: string;
   readTime: string;
   content: string;
+  published: boolean;
 };
 
 export const blogPosts: BlogPost[] = [
   {
     slug: "understanding-coronary-artery-disease",
+    published: true,
     category: "professional",
     tag: "Cardiology",
     title: "Understanding Coronary Artery Disease: When Surgery Is the Answer",
@@ -53,6 +55,7 @@ If you have been told you may need a surgical opinion regarding coronary artery 
   },
   {
     slug: "lung-nodule-what-now",
+    published: true,
     category: "professional",
     tag: "Thoracic",
     title: "Your CT Showed a Lung Nodule — What Happens Next?",
@@ -94,6 +97,7 @@ The most important message: if you have been told about a lung nodule, ensure it
   },
   {
     slug: "heart-valve-disease-signs",
+    published: true,
     category: "professional",
     tag: "Cardiology",
     title: "Heart Valve Disease: Symptoms You Should Not Ignore",
@@ -128,6 +132,7 @@ The timing of surgery, and the choice of valve strategy, must be individualised.
   },
   {
     slug: "lessons-from-the-operating-theatre",
+    published: false,
     category: "personal",
     tag: "Reflections",
     title: "Lessons the Operating Theatre Taught Me About Leadership",
@@ -165,6 +170,7 @@ I write this not as a lecture but as a reminder to myself. The theatre teaches r
   },
   {
     slug: "why-i-became-a-surgeon",
+    published: false,
     category: "personal",
     tag: "Life",
     title: "Why I Became a Surgeon",
@@ -203,9 +209,13 @@ That, more than anything, is why I became a surgeon.
 ];
 
 export function getPostBySlug(slug: string): BlogPost | undefined {
-  return blogPosts.find((p) => p.slug === slug);
+  return blogPosts.find((p) => p.slug === slug && p.published);
 }
 
 export function getAllSlugs(): string[] {
-  return blogPosts.map((p) => p.slug);
+  return blogPosts.filter((p) => p.published).map((p) => p.slug);
+}
+
+export function getPublishedPosts(): BlogPost[] {
+  return blogPosts.filter((p) => p.published);
 }

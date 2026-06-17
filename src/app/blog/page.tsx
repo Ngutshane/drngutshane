@@ -1,60 +1,13 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 import HeartDivider from "@/components/ui/HeartDivider";
+import { getPublishedPosts } from "@/lib/blog-data";
 
 export const metadata: Metadata = {
   title: "Blog",
   description:
     "Articles on cardiac and thoracic surgery from Dr B. Ngutshane, plus personal reflections on medicine and life.",
 };
-
-const allPosts = [
-  {
-    category: "professional",
-    tag: "Cardiology",
-    slug: "understanding-coronary-artery-disease",
-    title: "Understanding Coronary Artery Disease: When Surgery Is the Answer",
-    excerpt:
-      "A plain-language guide to how CAD develops, how it is managed medically, and the surgical options when medications and stenting are insufficient.",
-    date: "15 June 2025",
-  },
-  {
-    category: "professional",
-    tag: "Thoracic",
-    slug: "lung-nodule-what-now",
-    title: "Your CT Showed a Lung Nodule — What Happens Next?",
-    excerpt:
-      "Incidental lung nodules are increasingly detected. Here is how we risk-stratify them and when a surgical approach is indicated.",
-    date: "2 May 2025",
-  },
-  {
-    category: "professional",
-    tag: "Cardiology",
-    slug: "heart-valve-disease-signs",
-    title: "Heart Valve Disease: Symptoms You Should Not Ignore",
-    excerpt:
-      "Valve disease often develops slowly. Understanding the warning signs can make the difference between a repair and a replacement.",
-    date: "10 March 2025",
-  },
-  {
-    category: "personal",
-    tag: "Reflections",
-    slug: "lessons-from-the-operating-theatre",
-    title: "Lessons the Operating Theatre Taught Me About Leadership",
-    excerpt:
-      "Reflections on how the culture of a surgical team — communication, hierarchy, and trust under pressure — shapes outcomes far beyond the OR.",
-    date: "18 April 2025",
-  },
-  {
-    category: "personal",
-    tag: "Life",
-    slug: "why-i-became-a-surgeon",
-    title: "Why I Became a Surgeon",
-    excerpt:
-      "An honest account of the path that led from curiosity to scalpel — and what keeps the calling alive after years in theatre.",
-    date: "12 January 2025",
-  },
-];
 
 const tagColors: Record<string, string> = {
   Cardiology: "bg-[#0A1628] text-[#C9A84C]",
@@ -64,6 +17,7 @@ const tagColors: Record<string, string> = {
 };
 
 export default function BlogPage() {
+  const allPosts = getPublishedPosts();
   const professional = allPosts.filter((p) => p.category === "professional");
   const personal = allPosts.filter((p) => p.category === "personal");
 
@@ -99,25 +53,28 @@ export default function BlogPage() {
         </div>
       </section>
 
-      <HeartDivider />
-
-      {/* Personal posts */}
-      <section className="bg-[#F4F7FC] py-14 px-4 sm:px-6 lg:px-8">
-        <div className="max-w-6xl mx-auto">
-          <div className="flex items-center gap-4 mb-8">
-            <div className="h-px flex-1 bg-[#DDE3EE]" />
-            <h2 className="font-display text-2xl text-[#0A1628] font-bold whitespace-nowrap">
-              Personal
-            </h2>
-            <div className="h-px flex-1 bg-[#DDE3EE]" />
-          </div>
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-            {personal.map((p) => (
-              <PostCard key={p.slug} post={p} tagColors={tagColors} />
-            ))}
-          </div>
-        </div>
-      </section>
+      {/* Personal posts — hidden when none are published */}
+      {personal.length > 0 && (
+        <>
+          <HeartDivider />
+          <section className="bg-[#F4F7FC] py-14 px-4 sm:px-6 lg:px-8">
+            <div className="max-w-6xl mx-auto">
+              <div className="flex items-center gap-4 mb-8">
+                <div className="h-px flex-1 bg-[#DDE3EE]" />
+                <h2 className="font-display text-2xl text-[#0A1628] font-bold whitespace-nowrap">
+                  Personal
+                </h2>
+                <div className="h-px flex-1 bg-[#DDE3EE]" />
+              </div>
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+                {personal.map((p) => (
+                  <PostCard key={p.slug} post={p} tagColors={tagColors} />
+                ))}
+              </div>
+            </div>
+          </section>
+        </>
+      )}
     </>
   );
 }
