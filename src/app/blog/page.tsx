@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 import HeartDivider from "@/components/ui/HeartDivider";
-import { getPublishedPosts } from "@/lib/blog-data";
+import { getPublishedPosts, type BlogPost } from "@/lib/blog-data";
 
 export const metadata: Metadata = {
   title: "Blog",
@@ -83,7 +83,7 @@ function PostCard({
   post,
   tagColors,
 }: {
-  post: (typeof allPosts)[0];
+  post: BlogPost;
   tagColors: Record<string, string>;
 }) {
   return (
