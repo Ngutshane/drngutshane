@@ -4,9 +4,19 @@ import HeartDivider from "@/components/ui/HeartDivider";
 import BookingCTA from "@/components/home/BookingCTA";
 
 export const metadata: Metadata = {
-  title: "About",
+  title: "About Dr B. Ngutshane | Cardiothoracic Surgeon – Johannesburg & Westrand",
   description:
-    "Learn about Dr B. Ngutshane — specialist cardiothoracic surgeon with sessional rooms at Life Wilgeheuwel, Dr SK Matseke Memorial, and Netcare Pinehaven hospitals in Gauteng.",
+    "Dr B. Ngutshane is a specialist cardiothoracic (heart and lung) surgeon in Gauteng. Consulting rooms in Roodepoort, Soweto, and Krugersdorp. Serving patients from Johannesburg, Randburg, and the West Rand.",
+  keywords: [
+    "Dr B Ngutshane cardiothoracic surgeon",
+    "cardiothoracic surgeon Johannesburg",
+    "cardiac surgeon Roodepoort",
+    "heart surgeon Soweto",
+    "thoracic surgeon Krugersdorp",
+    "FCS cardiothoracic surgeon South Africa",
+    "HPCSA specialist surgeon Gauteng",
+  ],
+  alternates: { canonical: "https://drngutshane.co.za/about" },
 };
 
 const credentials = [

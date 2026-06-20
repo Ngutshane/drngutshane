@@ -4,9 +4,23 @@ import HeartDivider from "@/components/ui/HeartDivider";
 import BookingCTA from "@/components/home/BookingCTA";
 
 export const metadata: Metadata = {
-  title: "Services",
+  title: "Cardiac & Thoracic Surgery Services – Roodepoort, Soweto, Krugersdorp",
   description:
-    "Cardiothoracic surgical services offered by Dr B. Ngutshane — cardiac surgery, thoracic surgery, minimally invasive procedures, and surgical consultations.",
+    "Heart surgery, lung surgery, and cardiothoracic surgical services by Dr B. Ngutshane — specialist cardiac surgeon and thoracic surgeon serving Johannesburg, Roodepoort, Randburg, Soweto, and Krugersdorp, Gauteng.",
+  keywords: [
+    "cardiac surgery Johannesburg",
+    "heart surgery Gauteng",
+    "thoracic surgery Johannesburg",
+    "lung surgery Gauteng",
+    "CABG Johannesburg",
+    "heart valve surgery Gauteng",
+    "cardiothoracic surgery Roodepoort",
+    "cardiothoracic surgery Soweto",
+    "cardiothoracic surgery Krugersdorp",
+    "minimally invasive heart surgery Gauteng",
+    "VATS lung surgery Johannesburg",
+  ],
+  alternates: { canonical: "https://drngutshane.co.za/services" },
 };
 
 const services = [
