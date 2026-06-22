@@ -19,7 +19,7 @@ export const blogPosts: BlogPost[] = [
     title: "Understanding Coronary Artery Disease: When Surgery Is the Answer",
     excerpt:
       "A plain-language guide to how CAD develops, how it is managed medically, and the surgical options when medications and stenting are insufficient.",
-    date: "15 June 2025",
+    date: "22 June 2026",
     readTime: "6 min read",
     content: `
 Coronary artery disease (CAD) is the leading cause of death in South Africa and worldwide. It develops when the arteries supplying the heart muscle with blood become narrowed or blocked by a build-up of fatty deposits called plaque — a process known as atherosclerosis.
@@ -61,7 +61,7 @@ If you have been told you may need a surgical opinion regarding coronary artery 
     title: "Your CT Showed a Lung Nodule — What Happens Next?",
     excerpt:
       "Incidental lung nodules are increasingly detected. Here is how we risk-stratify them and when a surgical approach is indicated.",
-    date: "2 May 2025",
+    date: "2 May 2026",
     readTime: "5 min read",
     content: `
 With CT scanning now performed routinely for many chest and abdominal complaints, the incidental discovery of a lung nodule has become increasingly common. A "nodule" is simply a small rounded opacity — in practical terms, a spot — seen on the scan, typically smaller than 3 centimetres.
@@ -103,7 +103,7 @@ The most important message: if you have been told about a lung nodule, ensure it
     title: "Heart Valve Disease: Symptoms You Should Not Ignore",
     excerpt:
       "Valve disease often develops slowly. Understanding the warning signs can make the difference between a repair and a replacement.",
-    date: "10 March 2025",
+    date: "10 March 2026",
     readTime: "5 min read",
     content: `
 The heart has four valves — mitral, aortic, tricuspid, and pulmonary — whose job is to ensure blood flows in one direction only through the heart's chambers. When a valve leaks (regurgitation) or fails to open fully (stenosis), the heart must work harder to compensate, often for years before symptoms appear.
@@ -181,19 +181,19 @@ I write this not as a lecture but as a reminder to myself. The theatre teaches r
     content: `
 People ask this question in different ways. Sometimes it is genuine curiosity. Sometimes it carries an undertone — implying that medicine is an unusual path for someone who looks like me, from where I come from. I choose to hear only the curiosity, and I try to answer honestly.
 
-## It Started With a Question
+## It Started With a Desire to Help
 
-I was nine years old when my uncle was admitted to hospital with a heart condition. I did not understand what was wrong. Nobody explained it to me in terms a child could follow. I remember sitting in a waiting room, watching the doctors move purposefully down corridors, and wondering what they knew that no one would tell me.
+My family has always had someone with a heart condition. From my grandmother, mother and aunts. I have sat in many a waiting room, watching the doctors move purposefully down corridors, and wondering what they knew that no one would tell me.
 
 That wondering never left.
 
 ## The Long Road
 
-Medicine in South Africa is not a short path. MBChB is six years. Internship. Community service. Specialist training in general surgery, then cardiothoracic surgery — another eight years of registrarship and fellowship. By the time I was fully qualified, I had been in formal training for the better part of two decades.
+Medicine in South Africa is not a short path. MBBCh is six years. Internship. Community service. Specialist training in general surgery, then cardiothoracic surgery — another five to eight years of registrarship and fellowship. By the time I was fully qualified, I had been in formal training for the better part of two decades.
 
 People sometimes romanticise this. The reality includes missed family events, chronic exhaustion, moments of genuine doubt, and a financial cost that most professionals in other fields would find startling.
 
-I am not sharing this for sympathy. I am sharing it because I think it is important to be honest about what a calling actually costs, rather than presenting it as pure romance.
+I am not sharing this for sympathy. I am sharing it because I think it is important to be honest about what the actual cost of training is,rather than presenting it as pure romance.
 
 ## What Keeps It Alive
 
@@ -201,7 +201,7 @@ After years in theatre, the honest answer is this: the moment a patient who came
 
 I hope it never does.
 
-And I think about my nine-year-old self in that waiting room. I try to be the doctor who explains things. Who treats the question as worthy of a real answer. Who makes the waiting less opaque.
+And I think about my young self in that waiting room. I try to be the doctor who explains things. Who treats the question as worthy of a real answer. Who makes the waiting less opaque.
 
 That, more than anything, is why I became a surgeon.
     `.trim(),
