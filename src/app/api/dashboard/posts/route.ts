@@ -1,5 +1,6 @@
 import { NextRequest, NextResponse } from "next/server";
 import { supabaseAdmin } from "@/lib/supabase";
+import { revalidateBlog } from "@/lib/revalidate-blog";
 
 function slugify(input: string): string {
   return input
@@ -65,6 +66,7 @@ export async function POST(req: NextRequest) {
       throw error;
     }
 
+    revalidateBlog();
     return NextResponse.json({ post: data });
   } catch (err) {
     console.error("[dashboard/posts] POST error:", err);

@@ -1,8 +1,10 @@
 import Link from "next/link";
+import { connection } from "next/server";
 import { supabaseAdmin } from "@/lib/supabase";
 import PostsTable, { type DashboardPost } from "@/components/dashboard/PostsTable";
 
 export default async function DashboardPostsPage() {
+  await connection();
   const { data, error } = await supabaseAdmin
     .from("blog_posts")
     .select("*")

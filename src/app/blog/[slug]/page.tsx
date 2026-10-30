@@ -2,7 +2,7 @@ import { notFound } from "next/navigation";
 import type { Metadata } from "next";
 import Link from "next/link";
 import { Calendar, Clock, ArrowLeft, Tag } from "lucide-react";
-import { getPostBySlug, getAllSlugs } from "@/lib/blog-data";
+import { getPostBySlug, getAllSlugs, isThoracicGuy } from "@/lib/blog-data";
 import { getApprovedComments } from "@/lib/comments-data";
 import HeartDivider from "@/components/ui/HeartDivider";
 import BookingCTA from "@/components/home/BookingCTA";
@@ -19,9 +19,24 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const { slug } = await params;
   const post = await getPostBySlug(slug);
   if (!post) return { title: "Article Not Found" };
+  const url = `/blog/${post.slug}`;
   return {
     title: post.title,
     description: post.excerpt,
+    alternates: { canonical: url },
+    openGraph: {
+      type: "article",
+      locale: "en_ZA",
+      url,
+      siteName: "Dr B. Ngutshane – Cardiothoracic Surgeon",
+      title: post.title,
+      description: post.excerpt,
+    },
+    twitter: {
+      card: "summary_large_image",
+      title: post.title,
+      description: post.excerpt,
+    },
   };
 }
 
@@ -115,7 +130,7 @@ export default async function BlogPostPage({ params }: Props) {
             <span className="flex items-center gap-1.5">
               <Clock size={13} /> {post.readTime}
             </span>
-            <span>Dr B. Ngutshane</span>
+            <span>{isThoracicGuy(post) ? "Thoracic Guy · Dr B. Ngutshane" : "Dr B. Ngutshane"}</span>
           </div>
         </div>
       </div>

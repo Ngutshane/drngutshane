@@ -7,6 +7,7 @@ export const metadata: Metadata = {
   title: "Blog",
   description:
     "Articles on cardiac and thoracic surgery from Dr B. Ngutshane, plus personal reflections on medicine and life.",
+  alternates: { canonical: "/blog" },
 };
 
 const tagColors: Record<string, string> = {

@@ -1,4 +1,5 @@
 import { NextRequest, NextResponse } from "next/server";
+import { revalidatePath } from "next/cache";
 import { supabaseAdmin } from "@/lib/supabase";
 
 type Props = { params: Promise<{ id: string }> };
@@ -20,6 +21,7 @@ export async function PATCH(req: NextRequest, { params }: Props) {
       .single();
 
     if (error) throw error;
+    revalidatePath("/blog/[slug]", "page");
     return NextResponse.json({ comment: data });
   } catch (err) {
     console.error("[dashboard/comments/:id] PATCH error:", err);
@@ -35,5 +37,6 @@ export async function DELETE(_req: NextRequest, { params }: Props) {
     console.error("[dashboard/comments/:id] DELETE error:", error);
     return NextResponse.json({ error: "Internal server error" }, { status: 500 });
   }
+  revalidatePath("/blog/[slug]", "page");
   return NextResponse.json({ success: true });
 }

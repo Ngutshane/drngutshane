@@ -27,6 +27,11 @@ type BlogPostRow = {
   created_at: string;
 };
 
+/** Articles in the numbered series are titled "Thoracic Guy #1: ...". */
+export function isThoracicGuy(post: BlogPost): boolean {
+  return post.title.startsWith("Thoracic Guy");
+}
+
 function formatDate(iso: string): string {
   return new Date(iso).toLocaleDateString("en-ZA", {
     day: "numeric",

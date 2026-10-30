@@ -76,7 +76,7 @@ export default function PostForm({ initial }: { initial?: PostFormValues }) {
             type="text"
             value={values.title}
             onChange={(e) => set("title", e.target.value)}
-            placeholder="Understanding Coronary Artery Disease"
+            placeholder="Thoracic Guy #1: What a Lung Nodule Really Means"
             className="w-full border border-[#DDE3EE] px-4 py-2.5 text-sm focus:outline-none focus:border-[#C9A84C]"
           />
         </div>

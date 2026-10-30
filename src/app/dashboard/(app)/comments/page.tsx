@@ -1,7 +1,9 @@
+import { connection } from "next/server";
 import { supabaseAdmin } from "@/lib/supabase";
 import CommentsModeration, { type DashboardComment } from "@/components/dashboard/CommentsModeration";
 
 export default async function DashboardCommentsPage() {
+  await connection();
   const { data, error } = await supabaseAdmin
     .from("blog_comments")
     .select("*")
