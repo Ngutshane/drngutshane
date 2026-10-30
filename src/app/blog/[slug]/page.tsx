@@ -60,8 +60,9 @@ export default async function BlogPostPage({ params }: Props) {
   const comments = await getApprovedComments(slug);
 
   // Parse markdown-ish content into sections
-  const sections = post.content.split("\n\n").map((block, i) => {
-    const image = block.trim().match(IMAGE_BLOCK);
+  const blocks = post.content.trim().split(/\n\s*\n/).map((block) => block.trim());
+  const sections = blocks.map((block, i) => {
+    const image = block.match(IMAGE_BLOCK);
     if (image) {
       const [, caption, src, credit, creditUrl] = image;
       return (
