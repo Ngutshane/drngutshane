@@ -1,8 +1,7 @@
 import type { Metadata } from "next";
 import { Inter, Playfair_Display } from "next/font/google";
 import "./globals.css";
-import Navbar from "@/components/layout/Navbar";
-import Footer from "@/components/layout/Footer";
+import SiteChrome from "@/components/layout/SiteChrome";
 import { Toaster } from "react-hot-toast";
 
 const inter = Inter({
@@ -263,9 +262,7 @@ export default function RootLayout({
             }),
           }}
         />
-        <Navbar />
-        <main className="flex-1">{children}</main>
-        <Footer />
+        <SiteChrome>{children}</SiteChrome>
         <Toaster
           position="top-right"
           toastOptions={{

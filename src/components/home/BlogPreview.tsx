@@ -1,42 +1,17 @@
 import Link from "next/link";
-
-const posts = [
-  {
-    category: "professional",
-    tag: "Cardiology",
-    slug: "understanding-coronary-artery-disease",
-    title: "Understanding Coronary Artery Disease: When Surgery Is the Answer",
-    excerpt:
-      "A plain-language guide to how CAD develops, how it is managed medically, and the surgical options when medications and stenting are insufficient.",
-    date: "15 June 2025",
-  },
-  {
-    category: "professional",
-    tag: "Thoracic",
-    slug: "lung-nodule-what-now",
-    title: "Your CT Showed a Lung Nodule — What Happens Next?",
-    excerpt:
-      "Incidental lung nodules are increasingly detected. Here is how we risk-stratify them and when a surgical approach is indicated.",
-    date: "2 May 2025",
-  },
-  {
-    category: "personal",
-    tag: "Life",
-    slug: "lessons-from-the-operating-theatre",
-    title: "Lessons the Operating Theatre Taught Me About Leadership",
-    excerpt:
-      "Reflections on how the culture of a surgical team — communication, hierarchy, and trust under pressure — shapes outcomes far beyond the OR.",
-    date: "18 April 2025",
-  },
-];
+import { getLatestPublishedPosts } from "@/lib/blog-data";
 
 const tagColors: Record<string, string> = {
   Cardiology: "bg-[#0A1628] text-[#C9A84C]",
   Thoracic: "bg-[#122040] text-[#C9A84C]",
+  Reflections: "bg-[#F4F7FC] text-[#6B7A99] border border-[#DDE3EE]",
   Life: "bg-[#F4F7FC] text-[#6B7A99] border border-[#DDE3EE]",
 };
 
-export default function BlogPreview() {
+export default async function BlogPreview() {
+  const posts = await getLatestPublishedPosts(3);
+  if (posts.length === 0) return null;
+
   return (
     <section className="bg-white py-20 px-4 sm:px-6 lg:px-8">
       <div className="max-w-7xl mx-auto">
@@ -66,7 +41,7 @@ export default function BlogPreview() {
                 <div className="p-7 flex flex-col flex-1">
                   <div className="flex items-center justify-between mb-4">
                     <span
-                      className={`text-xs font-medium px-2 py-1 rounded-sm tracking-wider uppercase ${tagColors[p.tag]}`}
+                      className={`text-xs font-medium px-2 py-1 rounded-sm tracking-wider uppercase ${tagColors[p.tag] ?? "bg-[#F4F7FC] text-[#6B7A99] border border-[#DDE3EE]"}`}
                     >
                       {p.tag}
                     </span>

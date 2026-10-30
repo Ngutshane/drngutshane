@@ -3,18 +3,21 @@ import type { Metadata } from "next";
 import Link from "next/link";
 import { Calendar, Clock, ArrowLeft, Tag } from "lucide-react";
 import { getPostBySlug, getAllSlugs } from "@/lib/blog-data";
+import { getApprovedComments } from "@/lib/comments-data";
 import HeartDivider from "@/components/ui/HeartDivider";
 import BookingCTA from "@/components/home/BookingCTA";
+import CommentSection from "@/components/blog/CommentSection";
 
 type Props = { params: Promise<{ slug: string }> };
 
 export async function generateStaticParams() {
-  return getAllSlugs().map((slug) => ({ slug }));
+  const slugs = await getAllSlugs();
+  return slugs.map((slug) => ({ slug }));
 }
 
 export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const { slug } = await params;
-  const post = getPostBySlug(slug);
+  const post = await getPostBySlug(slug);
   if (!post) return { title: "Article Not Found" };
   return {
     title: post.title,
@@ -31,8 +34,10 @@ const tagColors: Record<string, string> = {
 
 export default async function BlogPostPage({ params }: Props) {
   const { slug } = await params;
-  const post = getPostBySlug(slug);
+  const post = await getPostBySlug(slug);
   if (!post) notFound();
+
+  const comments = await getApprovedComments(slug);
 
   // Parse markdown-ish content into sections
   const sections = post.content.split("\n\n").map((block, i) => {
@@ -124,6 +129,8 @@ export default async function BlogPostPage({ params }: Props) {
             {post.excerpt}
           </p>
           <div>{sections}</div>
+
+          <CommentSection postSlug={post.slug} comments={comments} />
 
           {/* Disclaimer for medical posts */}
           {post.category === "professional" && (

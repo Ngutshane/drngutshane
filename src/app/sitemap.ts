@@ -3,7 +3,7 @@ import type { MetadataRoute } from "next";
 
 const BASE = "https://drngutshane.co.za";
 
-export default function sitemap(): MetadataRoute.Sitemap {
+export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
   const staticPages = [
     { url: BASE,                        priority: 1.0,  changeFrequency: "weekly"  as const },
     { url: `${BASE}/about`,             priority: 0.9,  changeFrequency: "monthly" as const },
@@ -14,7 +14,8 @@ export default function sitemap(): MetadataRoute.Sitemap {
     { url: `${BASE}/privacy-policy`,    priority: 0.3,  changeFrequency: "yearly"  as const },
   ];
 
-  const blogPages = getPublishedPosts().map((post) => ({
+  const publishedPosts = await getPublishedPosts();
+  const blogPages = publishedPosts.map((post) => ({
     url: `${BASE}/blog/${post.slug}`,
     lastModified: new Date(post.date),
     priority: 0.7,

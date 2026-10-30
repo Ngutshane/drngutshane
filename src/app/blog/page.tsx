@@ -16,8 +16,8 @@ const tagColors: Record<string, string> = {
   Life: "bg-[#F4F7FC] text-[#6B7A99] border border-[#DDE3EE]",
 };
 
-export default function BlogPage() {
-  const allPosts = getPublishedPosts();
+export default async function BlogPage() {
+  const allPosts = await getPublishedPosts();
   const professional = allPosts.filter((p) => p.category === "professional");
   const personal = allPosts.filter((p) => p.category === "personal");
 
