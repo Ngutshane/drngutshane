@@ -66,7 +66,7 @@ export default function HeroSection() {
             </p>
 
             <h1 className="font-display text-5xl sm:text-6xl lg:text-[64px] font-bold text-white leading-[1.06] mb-6">
-              Cardiac Care <br />
+              Heart &amp; Lung Care <br />
               <span className="text-[#C9A84C]">with Precision</span>
               <br className="hidden sm:block" /> and Purpose.
             </h1>
