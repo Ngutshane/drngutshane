@@ -20,8 +20,10 @@ export const metadata: Metadata = {
 };
 
 const credentials = [
-  { icon: GraduationCap, text: "MBChB – University of the Witwatersrand" },
-  { icon: GraduationCap, text: "FCS(SA) – Cardiothoracic Surgery" },
+  { icon: GraduationCap, text: "FC Cardio (SA) – Cardiothoracic Surgery" },
+  { icon: GraduationCap, text: "MMed" },
+  { icon: GraduationCap, text: "MBBCh – University of the Witwatersrand" },
+  { icon: GraduationCap, text: "BSc Biomedical Sciences" },
   { icon: Award, text: "HPCSA Registered Specialist" },
   { icon: Award, text: "Member, South African Thoracic Society" },
   { icon: MapPin, text: "Life Wilgeheuwel Hospital, Roodepoort" },

@@ -116,8 +116,10 @@ export default function RootLayout({
                     "Pleural Effusion Management",
                   ],
                   hasCredential: [
-                    { "@type": "EducationalOccupationalCredential", credentialCategory: "MBChB – University of the Witwatersrand" },
-                    { "@type": "EducationalOccupationalCredential", credentialCategory: "FCS(SA) Cardiothoracic Surgery" },
+                    { "@type": "EducationalOccupationalCredential", credentialCategory: "FC Cardio (SA) Cardiothoracic Surgery" },
+                    { "@type": "EducationalOccupationalCredential", credentialCategory: "MMed" },
+                    { "@type": "EducationalOccupationalCredential", credentialCategory: "MBBCh – University of the Witwatersrand" },
+                    { "@type": "EducationalOccupationalCredential", credentialCategory: "BSc Biomedical Sciences" },
                     { "@type": "EducationalOccupationalCredential", credentialCategory: "HPCSA Registered Specialist" },
                   ],
                   areaServed: [
