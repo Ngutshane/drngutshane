@@ -154,7 +154,8 @@ export default function PostForm({ initial }: { initial?: PostFormValues }) {
           </label>
           <p className="text-xs text-[#6B7A99] mb-2">
             Supports simple formatting: <code>## Heading</code>, <code>**bold**</code>, and{" "}
-            <code>- list items</code>. Separate paragraphs with a blank line.
+            <code>- list items</code>. Separate paragraphs with a blank line. Add an image on its own
+            line: <code>![Caption](/articles/image.png &quot;Credit&quot; https://credit-link)</code>
           </p>
           <textarea
             rows={18}

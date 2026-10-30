@@ -1,6 +1,7 @@
 import { notFound } from "next/navigation";
 import type { Metadata } from "next";
 import Link from "next/link";
+import Image from "next/image";
 import { Calendar, Clock, ArrowLeft, Tag } from "lucide-react";
 import { getPostBySlug, getAllSlugs, isThoracicGuy } from "@/lib/blog-data";
 import { getApprovedComments } from "@/lib/comments-data";
@@ -40,6 +41,10 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   };
 }
 
+// ![Caption](/articles/image.png "Credit" https://credit-link). Local paths only:
+// next/image throws on hosts missing from next.config, which would break the page.
+const IMAGE_BLOCK = /^!\[(.+)\]\((\/\S+)(?:\s+"([^"]+)")?(?:\s+(https:\/\/\S+))?\)$/;
+
 const tagColors: Record<string, string> = {
   Cardiology: "bg-[#0A1628] text-[#C9A84C]",
   Thoracic: "bg-[#122040] text-[#C9A84C]",
@@ -56,6 +61,37 @@ export default async function BlogPostPage({ params }: Props) {
 
   // Parse markdown-ish content into sections
   const sections = post.content.split("\n\n").map((block, i) => {
+    const image = block.trim().match(IMAGE_BLOCK);
+    if (image) {
+      const [, caption, src, credit, creditUrl] = image;
+      return (
+        <figure key={i} className="my-8">
+          <Image
+            src={src}
+            alt={caption}
+            width={768}
+            height={576}
+            sizes="(max-width: 768px) 100vw, 768px"
+            className="w-full h-auto max-h-[32rem] object-contain bg-[#F4F7FC] border border-[#DDE3EE]"
+          />
+          <figcaption className="mt-2 text-sm text-[#6B7A99] leading-relaxed">
+            {caption}
+            {credit && (
+              <span className="block text-xs mt-1">
+                Image:{" "}
+                {creditUrl ? (
+                  <a href={creditUrl} target="_blank" rel="noopener noreferrer" className="underline hover:text-[#0A1628]">
+                    {credit}
+                  </a>
+                ) : (
+                  credit
+                )}
+              </span>
+            )}
+          </figcaption>
+        </figure>
+      );
+    }
     if (block.startsWith("## ")) {
       return (
         <h2 key={i} className="font-display text-2xl text-[#0A1628] font-bold mt-10 mb-4">

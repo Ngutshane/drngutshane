@@ -3,6 +3,9 @@ import type { MetadataRoute } from "next";
 
 const BASE = "https://drngutshane.co.za";
 
+// revalidatePath alone does not refresh the sitemap on Vercel.
+export const revalidate = 3600;
+
 export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
   const staticPages = [
     { url: BASE,                        priority: 1.0,  changeFrequency: "weekly"  as const },
